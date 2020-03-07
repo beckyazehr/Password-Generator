@@ -1,19 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-function writePassword() {
+function generatePassword() {
   var passwordLength = prompt("How many characters would you like your password to contain? (8-128)");
 
   if (passwordLength >= 8 && passwordLength <= 128) {
@@ -21,9 +9,9 @@ function writePassword() {
   }
   else {
     alert("Invalid selection. Please enter a numeric number that is at least 8 and no more than 128 and then hit OK.");
+    return "";
   }
 
-  //need the response of the answer saved passwordLengthResponse?
 
 
   var lowercase = confirm("Click OK to confirm including lowercase characters.");
@@ -36,20 +24,36 @@ function writePassword() {
   }
   else {
     alert("You must select at least one character type.");
+    return "";
   }
 
   var lowercaseOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   var uppercaseOptions = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   var numericOptions = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  var specialOptions = ["U+0021", "U+0023", "U+0024", "U+0025", "U+0026", "U+0040", "U+005E"];
+  var specialOptions = ["!", "@", "#", "$", "%", "^", "&", "*"];
 
-  for (var i = 0; i < lowercaseOptions.length; i++) {
+  for (var i = 0; i < passwordLength; i++) {
     if (lowercase === true) {
-      var lowercaseChoice = lowercaseOptions[Math.floor(Math.random() * passwordLength)]
+      var lowercaseChoice = lowercaseOptions[i];
+      var uppercaseChoice = uppercaseOptions[i];
+      var numericChoice = numericOptions[i];
+      var specialChoice = specialOptions[i];
       console.log(lowercaseChoice);
+      console.log(uppercaseChoice);
+      console.log(numericChoice);
+      console.log(specialChoice);
+
     }
   }
-  
-   
-  
 }
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
