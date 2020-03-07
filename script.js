@@ -13,7 +13,6 @@ function generatePassword() {
   }
 
 
-
   var lowercase = confirm("Click OK to confirm including lowercase characters.");
   var uppercase = confirm("Click OK to confirm including uppercase characters.");
   var numeric = confirm("Click OK to confirm including numeric characters.");
@@ -27,24 +26,28 @@ function generatePassword() {
     return "";
   }
 
-  var lowercaseOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  var uppercaseOptions = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  var numericOptions = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  var specialOptions = ["!", "@", "#", "$", "%", "^", "&", "*"];
+  var characterOptions = []
+
+  if (lowercase === true) {
+    characterOptions.push("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
+  }
+  if (uppercase === true) {
+    characterOptions.push("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+  }
+  if (numeric === true) {
+    characterOptions.push("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
+  }
+  if (special === true) {
+    characterOptions.push("!", "@", "#", "$", "%", "^", "&", "*")
+  }
+
+  var computerSelection = ""
 
   for (var i = 0; i < passwordLength; i++) {
-    if (lowercase === true) {
-      var lowercaseChoice = lowercaseOptions[i];
-      var uppercaseChoice = uppercaseOptions[i];
-      var numericChoice = numericOptions[i];
-      var specialChoice = specialOptions[i];
-      console.log(lowercaseChoice);
-      console.log(uppercaseChoice);
-      console.log(numericChoice);
-      console.log(specialChoice);
-
-    }
+    computerSelection = computerSelection + characterOptions[Math.floor(Math.random() * characterOptions.length)];
   }
+
+  return computerSelection;
 }
 
 // Write password to the #password input
