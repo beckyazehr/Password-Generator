@@ -1,9 +1,11 @@
+/*applies to the entire page*/
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/*applies to the broad outline of the page*/
 html,
 body,
 .wrapper {
@@ -23,6 +25,7 @@ body {
   padding-right: 20px;
 }
 
+/*header*/
 header {
   text-align: center;
   padding: 20px;
@@ -30,6 +33,7 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+/*styling for the card*/
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -71,7 +75,9 @@ header {
   display: block;
   clear: both;
 }
+/*end styling for the card*/
 
+/*Generate Password button*/
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
@@ -93,10 +99,7 @@ button[disabled] {
   background: #c0c7cf;
 }
 
-.float-right {
-  float: right;
-}
-
+/*password text box*/
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -118,6 +121,7 @@ button[disabled] {
   overflow: hidden;
 }
 
+/*page will work with viewports 690px or less*/
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
@@ -130,6 +134,7 @@ button[disabled] {
   }
 }
 
+/*page will work with viewports 500px or less*/
 @media (max-width: 500px) {
   .btn {
     font-size: 0.8rem;
